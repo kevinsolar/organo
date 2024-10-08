@@ -1,6 +1,6 @@
 import './Banner.css'
 
-function Banner() {
+ export const Banner = () => {
 
    //Isso é um JSX, parece html, mas não é.
    return (
@@ -9,5 +9,3 @@ function Banner() {
       </header>
    )
 }
-
-export default Banner
