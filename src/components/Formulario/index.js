@@ -1,3 +1,4 @@
+import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 //import CampoTexto from "./components/CampoTexto"; se usar index.js no componente criado, na importacao eu so preciso "puxar" pelo nome da pasta, pq por padrao ele sempre busca o index.js
@@ -24,6 +25,7 @@ const Formulario = () => {
 				<CampoTexto label="Cargo" placeholder="Digite seu cargo" />
 				<CampoTexto label="Imagem" placeholder="Digite o endereco da imagem" />
             <ListaSuspensa label="Time" itens={times} />
+            <Botao texto="criar card" />
 			</form>
 		</section>
 	);
