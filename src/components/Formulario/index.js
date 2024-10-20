@@ -5,7 +5,7 @@ import { useState } from 'react';
 //import CampoTexto from "./components/CampoTexto"; se usar index.js no componente criado, na importacao eu so preciso "puxar" pelo nome da pasta, pq por padrao ele sempre busca o index.js
 import "./Formulario.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
 
    const times = [
       'Programacao',
@@ -24,7 +24,18 @@ const Formulario = () => {
 
    const aoSalvar = (evento) => {
       evento.preventDefault()
-      console.log('Foi enviado! => ', nome, cargo, imagem, time)
+      // console.log('Foi enviado! => ', nome, cargo, imagem, time)
+      /* Ao inves de fazer esser console.log aqui, vamos fazer com que agora passe essas informacoes coletadas e passe
+      adiante, ou seja, para o App.js, que esta responsavel pela comunicacao entre formulario e algum lugar que ira
+      guardar essa informacao para ser exibida. 
+       -> entao usaremos o props, para dizer que queremos enviar isso para quem esta chamando.
+      */
+      props.aoColaboradorCadastrado({
+         nome,
+         cargo,
+         imagem,
+         time
+      })
    }
 
    return (
@@ -34,7 +45,8 @@ const Formulario = () => {
             {/* Passo como parametro uma label com o que desejo imprimir, nesse caso eh label="Nome", entao preciso declarar isso no meu componente agora. */}
             <CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome"
                valor={nome}
-               aoAlterado={valor => setNome(valor)} //Para alterar o valor que recebemos do evento "valor"
+               aoAlterado={valor => setNome(valor)}
+               //Estamos passando o que foi digitado com setter para alterar o valor que recebemos do evento "valor"
             />
             <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu cargo"
                valor={cargo}
