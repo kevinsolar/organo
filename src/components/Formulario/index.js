@@ -15,17 +15,26 @@ const Formulario = () => {
       'Mobile',
       'Inovacao e Gestao'
    ]
+
+   const aoSalvar = (evento) => {
+      evento.preventDefault()
+      alert('Foi enviado!')
+   }
    
 	return (
 		<section className="formulario">
-			<form>
+			<form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card do colaborador</h2>
 				{/* Passo como parametro uma label com o que desejo imprimir, nesse caso eh label="Nome", entao preciso declarar isso no meu componente agora. */}
-				<CampoTexto label="Nome" placeholder="Digite seu nome" />
-				<CampoTexto label="Cargo" placeholder="Digite seu cargo" />
-				<CampoTexto label="Imagem" placeholder="Digite o endereco da imagem" />
-            <ListaSuspensa label="Time" itens={times} />
-            <Botao texto="criar card" />
+				<CampoTexto obrigatorio={true} label="Nome" placeholder="Digite seu nome" />
+				<CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite seu cargo" />
+				<CampoTexto obrigatorio={false} label="Imagem" placeholder="Digite o endereco da imagem" />
+            <ListaSuspensa obrigatorio={true} label="Time" itens={times} />
+            
+            {/* <Botao texto="criar card" /> //Esse seria o jeito certo de fazer, mas vamos fazer como se fosse um html para demonstrar varias maneiras de fazer! */}
+            <Botao>
+               criar card
+            </Botao>
 			</form>
 		</section>
 	);

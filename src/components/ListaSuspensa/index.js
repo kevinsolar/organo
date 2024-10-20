@@ -4,7 +4,7 @@ const ListaSuspensa = (props) => {
  return (
    <div className='lista-suspensa'>
       <label>{props.label}</label>
-      <select>
+      <select required={props.obrigatorio}>
          {props.itens.map(item => <option key={item}>{item}</option>)}
          {/* Esso eh a forma mais rapida de fazer a insercao de options dinamicas, mas, o mais legivel eh: */}
 
