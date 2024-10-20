@@ -20,10 +20,11 @@ const Formulario = () => {
    const [nome, setNome] = useState('')
    const [cargo, setCargo] = useState('')
    const [imagem, setImagem] = useState('')
+   const [time, setTime] = useState('')
 
    const aoSalvar = (evento) => {
       evento.preventDefault()
-      alert('Foi enviado!')
+      console.log('Foi enviado! => ', nome, cargo, imagem, time)
    }
 
    return (
@@ -43,7 +44,10 @@ const Formulario = () => {
                valor={imagem}
                aoAlterado={valor => setImagem(valor)}
             />
-            <ListaSuspensa obrigatorio={true} label="Time" itens={times} />
+            <ListaSuspensa obrigatorio={true} label="Time" itens={times} 
+               valor={time}
+               aoAlterado={valor => setTime(valor)}
+            />
 
             {/* <Botao texto="criar card" /> //Esse seria o jeito certo de fazer, mas vamos fazer como se fosse um html para demonstrar varias maneiras de fazer! */}
             <Botao>
