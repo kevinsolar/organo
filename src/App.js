@@ -54,7 +54,7 @@ function App() {
 	return (
 		<div className="App">
          <Banner />
-         <Formulario aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdicionado(colaborador) } />
+         <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdicionado(colaborador) } />
          {/* Vamos com nosso formulario ouvir um pedido de cadastro para criar um card com
             nossos colaboradores. */}
          
