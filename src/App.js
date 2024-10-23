@@ -58,7 +58,18 @@ function App() {
          {/* Vamos com nosso formulario ouvir um pedido de cadastro para criar um card com
             nossos colaboradores. */}
          
-         {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />)}
+         {/* Componente que apresenta a seção de cada time */}
+         {times.map
+            (time => 
+               <Time
+               key={time.nome}
+               nome={time.nome}
+               corPrimaria={time.corPrimaria}
+               corSecundaria={time.corSecundaria} />
+            )
+         }
+
+         
          
 		</div>
 	);
