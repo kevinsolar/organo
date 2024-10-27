@@ -5,14 +5,6 @@ import Time from "./components/Time";
 
 function App() {
 
-   const [colaboradores, setColaboradores] = useState( [] )
-
-   const aoNovoColaboradorAdicionado = (colaborador) => {
-      console.log(colaborador)
-      //No meu setColaboradores, vou criar uma nova array, vou espalhar todos os colaboradores antigos e adicionar o novo no final
-      setColaboradores([...colaboradores, colaborador])
-   }
-
    const times = [
       {
          nome: 'Programacao',
@@ -51,28 +43,38 @@ function App() {
       },
    ]
 
-	return (
-		<div className="App">
+   const [colaboradores, setColaboradores] = useState([])
+
+   const aoNovoColaboradorAdicionado = (colaborador) => {
+      console.log(colaborador)
+      //No meu setColaboradores, vou criar uma nova array, vou espalhar todos os colaboradores antigos e adicionar o novo no final
+      setColaboradores([...colaboradores, colaborador])
+   }
+
+   return (
+      <div className="App">
          <Banner />
-         <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdicionado(colaborador) } />
+         <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
          {/* Vamos com nosso formulario ouvir um pedido de cadastro para criar um card com
             nossos colaboradores. */}
-         
+
          {/* Componente que apresenta a seção de cada time */}
          {times.map
-            (time => 
+            (time =>
                <Time
-               key={time.nome}
-               nome={time.nome}
-               corPrimaria={time.corPrimaria}
-               corSecundaria={time.corSecundaria} />
+                  key={time.nome}
+                  nome={time.nome}
+                  corPrimaria={time.corPrimaria}
+                  corSecundaria={time.corSecundaria}
+                  colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+               />
             )
          }
 
-         
-         
-		</div>
-	);
+
+
+      </div>
+   );
 }
 
 export default App;
