@@ -26,6 +26,12 @@ const Formulario = (props) => {
          imagem,
          time
       })
+
+      //Funcao para limpar os inputs ao enviar.
+      setNome('')
+      setCargo('')
+      setImagem('')
+      setTime('')
    }
 
    return (

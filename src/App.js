@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
 import Time from "./components/Time";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -71,7 +72,7 @@ function App() {
             )
          }
 
-
+         <Footer alt="100% atualizado"/>
 
       </div>
    );
